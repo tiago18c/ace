@@ -1,5 +1,5 @@
 [workspace]
-members = ["core", "counter"]
+members = ["core", "counter", "perps"]
 
 [workspace.dependencies]
 apq-core = { path = "core" }

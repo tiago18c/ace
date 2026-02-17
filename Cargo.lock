@@ -1891,6 +1891,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "perps"
+version = "0.1.0"
+dependencies = [
+ "apq-core",
+ "bytemuck",
+ "lib-sokoban",
+ "litesvm",
+ "pinocchio",
+ "pinocchio-log",
+ "solana-account",
+ "solana-instruction",
+ "solana-keypair",
+ "solana-program",
+ "solana-pubkey",
+ "solana-signature",
+ "solana-signer",
+ "solana-transaction",
+]
+
+[[package]]
 name = "pin-project-lite"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
