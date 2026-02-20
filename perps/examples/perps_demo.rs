@@ -14,7 +14,7 @@ use solana_signer::Signer;
 use solana_transaction::Transaction;
 
 const PERPS_PROGRAM_ID: Pubkey =
-    solana_pubkey::pubkey!("PerpsProgram1111111111111111111111111111111");
+    solana_pubkey::pubkey!("HBtR4MuDfC6unTEcC1buv5u6ubJ2yRxTpvFWtvAXKwQC");
 
 fn main() {
     println!("=== ACE Perps: Cancel-Priority Perpetual Futures Demo ===\n");

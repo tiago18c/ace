@@ -23,3 +23,7 @@ solana-pubkey = "2.2"
 solana-signature = "2.2"
 solana-signer = "2.2"
 solana-transaction = "2.2"
+# Devnet example dependencies
+solana-rpc-client = "2.2"
+solana-commitment-config = "2.2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time"] }
