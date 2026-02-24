@@ -1,3 +1,6 @@
+> [!WARNING]
+> **This is a toy/research project. It is unaudited, incomplete, and not suitable for production use. Do not deploy with real funds.**
+
 # ACE Perps: Cancel-Priority Perpetual Futures
 
 Perpetual futures implementation using the ACE (Application Controlled Execution) pattern to solve the cancel/take race condition that plagues on-chain perps.
@@ -85,6 +88,27 @@ The demo walks through:
 | CEX | ~1-10ms | Guaranteed (sequencer) |
 
 **Single-account contention.** The current design puts everything in one account (simple for demo). Production would shard by market or split queue/book/positions into separate accounts.
+
+## Examples
+
+Run from the `perps` directory with `cargo run --example <name>`:
+
+| Example | Description |
+|---|---|
+| `setup` | Initialize program accounts and state |
+| `oracle` | Update the oracle price |
+| `margin` | Deposit or withdraw margin |
+| `market_maker` | Place and manage resting orders |
+| `taker` | Submit take orders against the book |
+| `crank` | Process pending async instructions |
+| `orderbook_viewer` | Print the current orderbook state |
+| `perps_demo` | End-to-end demo: setup, quote, take, crank |
+| `malicious_market_maker` | Demonstrates shred-reactive spoofing (see analysis below) |
+
+## Analysis
+
+- [Liquidity dynamics: FIFO vs cancel-priority scheduling](liquidity_analysis.md) — compares how FIFO, cancel-only, and full ACE priority affect book depth, taker fill rates, and MM protection across a requote scenario.
+- [Spoofing vulnerability analysis](spoofing.md) — documents how shred streaming enables a market maker to place phantom liquidity and reactively cancel before a taker fills, including selective layer cancellation that degrades taker entry prices without producing a detectable 0-fill outcome.
 
 ## Disclaimer
 
